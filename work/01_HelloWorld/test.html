@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>01_HelloWorld</title>
+</head>
+<body>
+<div id="test"></div>
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+<script type="text/babel">
+    //1.创建虚拟DOM
+    var vDOM = <h2>hello react</h2>
+    //2.渲染虚拟DOM
+    ReactDOM.render(vDOM, document.getElementById('test'))
+</script>
+</body>
+</html>
