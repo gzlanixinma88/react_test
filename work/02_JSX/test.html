@@ -6,7 +6,18 @@
 </head>
 <body>
   <div id="test1"></div>
-  <div id="test2"></div>
 
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+<script type="text/babel">
+
+    const MyId = 'atGuigu'
+    const msg = 'I Like You'
+
+    var vDOM =<h2 id={MyId.toLowerCase()}>{msg.toUpperCase()}</h2>
+
+    ReactDOM.render(vDOM, document.getElementById('test1'))
+</script>
 </body>
 </html>

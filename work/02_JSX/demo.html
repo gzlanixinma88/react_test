@@ -16,6 +16,14 @@
     /*
      功能: 动态展示列表数据
      */
+    var names = ['jquery', 'angular', 'zepto', 'react', 'vue']
+    
+    var vDOM = (<ul>
+        {
+            names.map((name, index) =><li key = {index}>{name}</li>)
+        }
+    </ul>)
+    ReactDOM.render(vDOM, document.getElementById('example1'))
   </script>
 </body>
 </html>
