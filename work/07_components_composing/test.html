@@ -13,9 +13,69 @@
   <script type="text/javascript" src="../js/prop-types.js"></script>
   <script type="text/javascript" src="../js/babel.min.js"></script>
   <script type="text/babel">
+    class App extends React.Component{
+        constructor(props){
+            super(props)
+            this.state = {
+                tools = ['吃饭', '睡觉', '打豆豆']
+            }
+            this.add = this.add.bind(this)
+        }
+        add(todo){
+            const {todos} = this.state
+            todos.unshift(todo)
+            this.setState({todos})
+        }
 
+        render(){
+            const todos = this.state
+            return(
+                <div>
+                  <h1>Simple Todo List</h1>
+                  <Add add={this.add} count={todos.length}/>
+                  <List todos={todos}/>
+                </div>
+            )
+        }
+    }
+    class Add extends React.Component{
+        constructor(props){
+            super(props)
+            this.addTodo = this.addTodo.bind(this)
+        }
+        addTodo(){
+            const text = this.input.value.stim()
+            if (!text){
+                return
+            }
+            this.props.add(text)
+            this.input.value = ''
 
+        }
 
+        render(){
+            return(
+                <div>
+                  <input type="text" sef={input => this.input = input}/>
+                  <button onClick={addTodo}>Add # {this.props.count}</button>
+                </div>
+            )
+        }
+    }
+    class List extends React.Component{
+        render(){
+            return(
+                <div>
+                  <ul>
+                    <li>AAA</li>
+                    <li>bbb</li>
+                    <li>CCC</li>
+                  </ul>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(<App/>, document.getElementById('example'))
   </script>
 </body>
 </html>

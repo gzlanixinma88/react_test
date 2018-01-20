@@ -17,6 +17,52 @@
     2. 切换时间为2S
     3. 点击按钮从界面中移除组件界面
    */
+  class Lift extends React.Component{
+
+      constructor(props){
+          super(props)
+          this.state = {
+              opacity:1
+          }
+          this.componentDidMount = this.componentDidMount.bind(this)
+          this.removeComponent = this.removeComponent.bind(this)
+          this.componentWillUnmount = this.componentWillUnmount.bind(this)
+      }
+
+      componentDidMount(){
+
+        this.Interval = setInterval(function () {
+            console.log("启动定时器~~~");
+            let {opacity} = this.state
+            opacity -=0.1
+            if (opacity <= 0){
+                opacity = 1
+            }
+            this.setState({opacity})
+        }.bind(this),200)
+      }
+
+      componentWillUnmount(){
+          clearInterval(this.Interval)
+          console.log('定时器已清除~~');
+      }
+
+      removeComponent(){
+          ReactDOM.unmountComponentAtNode(document.getElementById('example'))
+      }
+
+      render(){
+          const {opacity} = this.state
+          return(
+              <div>
+                <h2 style={{opacity:opacity}}>{this.props.msg}</h2>
+                <button onClick={this.removeComponent}>不活了</button>
+              </div>
+
+          )
+      }
+  }
+  ReactDOM.render(<Lift msg="react太难了"/>, document.getElementById('example'))
 </script>
 </body>
 </html>

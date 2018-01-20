@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>09_form</title>
+  <title>08_form</title>
 </head>
 <body>
 <div id="example"></div>
@@ -17,6 +17,34 @@
     2. 输入用户名密码后, 点击登陆提示输入信息
     3. 不提交表单
   */
+  class MyFrom extends React.Component{
+      constructor(props){
+          super(props)
+          this.state = {
+              username:''
+          }
+          this.handleSubmit = this.handleSubmit.bind(this);
+          this.handleChange = this.handleChange.bind(this);
+
+      }
+      handleChange(event){
+          this.setState({username:event.target.value})
+      }
+      handleSubmit(event){
+          alert(`准备提交的用户名为：${this.state.username}, 密码: ${this.pwdInput.value}`)
+          event.preventDefault;
+      }
+      render(){
+          return(
+              <form onSubmit={this.handleSubmit}>
+                用户名： <input type="text" value={this.state.username} onChange={this.handleChange}/>&nbsp;
+                密 码 ：<input type="password" ref={input => this.pwdInput = input}/>
+                <input type="submit"  value="登录"/>
+              </form>
+          )
+      }
+  }
+  ReactDOM.render(<MyFrom/>, document.getElementById('example'))
 </script>
 </body>
 </html>

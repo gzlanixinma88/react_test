@@ -7,9 +7,11 @@
 <body>
 
 <div id="example1"></div>
+<div id="example2"></div>
 
 <script type="text/javascript" src="../js/react.development.js"></script>
 <script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/prop-types.js"></script>
 <script type="text/javascript" src="../js/babel.min.js"></script>
 
 <script type="text/babel">
@@ -20,17 +22,39 @@
   2). 如果年龄没有指定, 默认为18
   */
 
-  function Person(props) {
-      return (
-              <ul>
-                <li>{props.name}</li>
-                <li>{props.age}</li>
-                <li>{props.sex}</li>
-              </ul>
-      )
+  class Person extends React.Component{
+
+      render(){
+          return (
+                  <ul>
+                    <li>{this.props.name}</li>
+                    <li>{this.props.age}</li>
+                    <li>{this.props.sex}</li>
+                  </ul>
+          )
+      }
+  }
+  Person.propTypes = {
+      name: PropTypes.string.isRequired,
+      age: PropTypes.number,
+      sex: PropTypes.string
+  }
+  Person.defaultProps = {
+      age:18,
+      sex: '男'
+  }
+  const p = {
+      name:'gzl',
+      age:20,
+      sex:'女'
   }
 
-  ReactDOM.render(<Person />,document.getElementById('example'))
+  const p2 = {
+      name:'zlx'
+  }
+  ReactDOM.render(<Person {...p} />, document.getElementById('example1'))
+  ReactDOM.render(<Person {...p2} />, document.getElementById('example2'))
+
 
 </script>
 </body>
