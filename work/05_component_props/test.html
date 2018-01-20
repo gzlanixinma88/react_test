@@ -20,6 +20,18 @@
   2). 如果年龄没有指定, 默认为18
   */
 
+  function Person(props) {
+      return (
+              <ul>
+                <li>{props.name}</li>
+                <li>{props.age}</li>
+                <li>{props.sex}</li>
+              </ul>
+      )
+  }
+
+  ReactDOM.render(<Person />,document.getElementById('example'))
+
 </script>
 </body>
 </html>

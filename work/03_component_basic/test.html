@@ -14,6 +14,19 @@
   <script type="text/javascript" src="../js/babel.min.js"></script>
 
   <script type="text/babel">
+      //1、定义组件
+      function Mycomponent() {
+          return <h2>工厂函数组件(简单组件)</h2>
+      }
+
+      class Mycomponent2 extends React.Component{
+          render (){
+              return <h2>ES函数组件(复杂组件)</h2>
+          }
+      }
+      //2、渲染组件
+      ReactDOM.render(<Mycomponent/>, document.getElementById('example'))
+      ReactDOM.render(<Mycomponent2/>, document.getElementById('example1'))
   </script>
 </body>
 </html>
