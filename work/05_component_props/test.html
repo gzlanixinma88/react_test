@@ -22,18 +22,16 @@
   2). 如果年龄没有指定, 默认为18
   */
 
-  class Person extends React.Component{
-
-      render(){
-          return (
-                  <ul>
-                    <li>{this.props.name}</li>
-                    <li>{this.props.age}</li>
-                    <li>{this.props.sex}</li>
-                  </ul>
-          )
-      }
+  function Person(props) {
+      return(
+            <ul>
+              <li>{props.name}</li>
+              <li>{props.age}</li>
+              <li>{props.sex}</li>
+            </ul>
+      )
   }
+
   Person.propTypes = {
       name: PropTypes.string.isRequired,
       age: PropTypes.number,

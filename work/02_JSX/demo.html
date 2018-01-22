@@ -13,17 +13,15 @@
   <script type="text/javascript" src="../js/babel.min.js"></script>
 
   <script type="text/babel">
-    /*
-     功能: 动态展示列表数据
-     */
-    var names = ['jquery', 'angular', 'zepto', 'react', 'vue']
+    var names = ['angular', 'zepto', 'jquery', 'react', 'vue']
     
-    var vDOM = (<ul>
-        {
-            names.map((name, index) =><li key = {index}>{name}</li>)
-        }
-    </ul>)
-    ReactDOM.render(vDOM, document.getElementById('example1'))
+    var lis = []
+    
+    names.forEach((name, index) => lis.push(<li key={index}>{name}</li>))
+    
+    var ul = <ul>{lis}</ul>
+    
+    ReactDOM.render(ul, document.getElementById('example1'))
   </script>
 </body>
 </html>
